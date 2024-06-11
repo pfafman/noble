@@ -52,6 +52,15 @@ const noble = require('@abandonware/noble/with-custom-binding')({extended: true}
 
 ```
 
+## Use Noble With Active BLE With HCI 
+
+New default is with active BLE off.  Passive only.  Will not look for an advert response packet.
+
+```javascript
+const noble = require('@abandonware/noble/with-custom-binding')({active: true});
+
+```
+
 ## Installation
 
 * [Prerequisites](#prerequisites)
