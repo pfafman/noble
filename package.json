@@ -1,19 +1,18 @@
 {
-  "author": "Sandeep Mistry",
+  "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
   "maintainers": [
-    "Jacob Rosenthal",
-    "Luis Montes"
+    "Marek Serafin <marek@serafin.email>"
   ],
   "license": "MIT",
-  "name": "@abandonware/noble",
+  "name": "@stoprocent/noble",
   "description": "A Node.js BLE (Bluetooth Low Energy) central library.",
-  "version": "1.9.2-23",
+  "version": "1.12.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/abandonware/noble.git"
+    "url": "https://github.com/stoprocent/noble.git"
   },
   "bugs": {
-    "url": "https://github.com/abandonware/noble/issues"
+    "url": "https://github.com/stoprocent/noble/issues"
   },
   "keywords": [
     "bluetooth",
@@ -26,14 +25,8 @@
   "types": "./index.d.ts",
   "gypfile": true,
   "engines": {
-    "node": ">=6"
+    "node": ">=14"
   },
-  "os": [
-    "darwin",
-    "linux",
-    "freebsd",
-    "win32"
-  ],
   "dependencies": {
     "debug": "^4.4.0",
     "napi-thread-safe-callback": "^0.0.6",
@@ -67,11 +60,9 @@
     "install": "node-gyp-build",
     "lint": "eslint \"**/*.js\"",
     "lint-fix": "eslint \"**/*.js\" --fix",
-    "prebuild": "prebuildify --napi --strip",
-    "prebuild-darwin": "prebuildify --napi --strip --arch x64+arm64",
-    "prebuild-win32": "prebuildify --napi --strip",
-    "prebuild-linux": "prebuildify --napi --strip",
-    "prebuild-download": "prebuildify-ci download",
+    "prebuildify": "prebuildify --napi --target 14.0.0 --force --strip --verbose",
+    "prebuildify-cross": "prebuildify-cross --napi --target 14.0.0 --force --strip --verbose",
+    "semantic-release": "semantic-release",
     "pretest": "npm run rebuild",
     "rebuild": "node-gyp rebuild",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov > .nyc_output/lcov.info",
@@ -80,9 +71,7 @@
   "browser": {
     "./lib/resolve-bindings.js": "./lib/resolve-bindings-web.js"
   },
-  "binary": {
-    "napi_versions": [
-      4
-    ]
+  "publishConfig": {
+    "access": "public"
   }
 }
