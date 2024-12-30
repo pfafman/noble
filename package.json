@@ -4,7 +4,7 @@
     "Marek Serafin <marek@serafin.email>"
   ],
   "license": "MIT",
-  "name": "@stoprocent/noble",
+  "name": "@abandonware/noble",
   "description": "A Node.js BLE (Bluetooth Low Energy) central library.",
   "version": "1.12.0",
   "repository": {
